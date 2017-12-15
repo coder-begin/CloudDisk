@@ -1,0 +1,23 @@
+body,p,ul,li,html,h1,h2,h3,h4,h5,h6{
+    margin: 0;
+    padding: 0;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+    font-size: 0.29rem;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+button,input[type=button]{
+    box-shadow: none;
+}
+ul{
+    list-style: none;
+}
+html,body{
+    font-size: 0.29rem;
+    overflow: hidden;
+}

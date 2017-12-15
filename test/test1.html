@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <style>
+        .btn {
+            width: 50px;
+            height: 30px;
+            background-color: #ff0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+
+        <div>
+            <input type="checkbox" v-model="checked"> {{checked}}
+        </div>
+
+        <div>
+
+            <input type="checkbox" value="football" v-model="checkHobbies">
+            <input type="checkbox" value="baseball" v-model="checkHobbies">
+            <input type="checkbox" value="music" v-model="checkHobbies">
+            <input type="checkbox" value="game" v-model="checkHobbies">
+            <input type="checkbox" value="basketball" v-model="checkHobbies"> {{checkHobbies}}
+        </div>
+
+
+        <div>
+            <input type="radio" value="man" v-model="sex" />
+            <input type="radio" value="woman" v-model="sex" /> {{sex}}
+        </div>
+
+        <div>
+
+            <select name="" id="" v-model="answer">
+                <option value="" disabled>请选择</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+
+            {{answer}}
+        </div>
+
+
+        <div>
+
+            <select name="" id="" multiple v-model="hobbies">
+                <option value="E">E</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+            {{hobbies}}
+
+        </div>
+
+        <div>
+            <input type="text" v-model="num" v-focus />
+            {{num | upCase|fanzhuan}}
+        </div>
+
+
+    </div>
+
+
+
+
+    <script type="text/javascript">
+        Vue.filter("upCase",function(value){
+            if(!value){
+                return "";
+            }else{
+                return value.toUpperCase();
+            }
+        })
+
+        Vue.filter("fanzhuan",function(value){
+            if(!value){
+                return "";
+            }else{
+
+                return value.toString().split("").reverse().join("");
+
+
+            }
+
+
+        });
+
+
+        const vue = new Vue({
+            el: "#box",
+            data: {
+                checked: false,
+                checkHobbies: [],
+                sex: [],
+                answer: "",
+                hobbies:[],
+                num:"",
+            },
+            directives:{
+                focus:{
+                    inserted:function(el){
+                        el.focus();
+                    }
+                }
+            }
+
+
+
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>
